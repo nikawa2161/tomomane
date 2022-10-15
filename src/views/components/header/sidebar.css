@@ -1,0 +1,20 @@
+/* react-burger-menusスタイル */
+
+.bm-burger-button {
+  position: fixed;
+  width: 2rem;
+  height: 1.5rem;
+  left: 1rem;
+  top: 1rem;
+}
+.bm-burger-bars {
+  background: #ffff;
+  height: 2px !important;
+}
+.bm-cross {
+  background: #bdc3c7;
+}
+.bm-menu {
+  background: #ffff;
+  padding: 30px;
+}

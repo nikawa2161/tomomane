@@ -1,6 +1,11 @@
+import './sidebar.css'
+
+import Sidebar from "./Sidebar"
+
 function Header() {
   return (
     <>
+      <Sidebar />
       <header className="">
         <div className="py-4 px-4 bg-blue-primary regal-blue">
           <div className="flex justify-end">
