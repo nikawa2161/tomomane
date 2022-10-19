@@ -1,6 +1,7 @@
-import Header from './components/header/Header'
+import { FC } from 'react'
+import { Header } from './components/header/Header'
 
-function App() {
+export const App:FC = () => {
   return (
     <>
       <div className="App">
@@ -9,5 +10,3 @@ function App() {
     </>
   )
 }
-
-export default App

@@ -1,8 +1,10 @@
-import { IconContext } from 'react-icons'
+import { FC } from 'react'
+
 import { slide as Menu } from 'react-burger-menu'
+import { IconContext } from 'react-icons'
 import { FaUser } from 'react-icons/fa'
 
-function Sidebar() {
+export const  Sidebar:FC = () => {
   return (
     <Menu>
       <div>
@@ -49,5 +51,3 @@ function Sidebar() {
     </Menu>
   )
 }
-
-export default Sidebar

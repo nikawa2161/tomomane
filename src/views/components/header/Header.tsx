@@ -1,14 +1,16 @@
+import { FC } from 'react'
+import { Sidebar } from './Sidebar'
+import { IconMenuList } from './IconMenuList'
 import './hamburger.css'
 
-import Sidebar from "./Sidebar"
 
-function Header() {
+export const Header:FC = () => {
   return (
     <>
       <Sidebar />
       <header className="">
-        <div className="py-4 px-4 bg-blue-primary regal-blue">
-          <div className="flex justify-start">
+        <div className="px-4 pt-4 pb-4 bg-blue-primary regal-blue">
+          <div className="flex justify-start ">
             <img
               className="h-5"
               src={`${process.env.PUBLIC_URL}/images/header/logo1.png`}
@@ -16,9 +18,9 @@ function Header() {
             />
           </div>
         </div>
+
+        <IconMenuList />
       </header>
     </>
   )
 }
-
-export default Header
