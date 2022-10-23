@@ -4,7 +4,36 @@ import { slide as Menu } from 'react-burger-menu'
 import { IconContext } from 'react-icons'
 import { FaUser } from 'react-icons/fa'
 
-export const  Sidebar:FC = () => {
+import { Link } from 'react-router-dom'
+
+type Route = {
+  path: string
+  title: string
+}
+
+export const Sidebar: FC = () => {
+  const routes: Route[] = [
+    {
+      path: '/',
+      title: '友達一覧',
+    },
+    {
+      path: '/post/',
+      title: '友達追加',
+    },
+    {
+      path: '/like/',
+      title: 'お気に入り',
+    },
+    {
+      path: '/calendar/',
+      title: 'カレンダー',
+    },
+    {
+      path: '/account/',
+      title: 'アカウント',
+    },
+  ]
   return (
     <Menu>
       <div>
@@ -20,31 +49,15 @@ export const  Sidebar:FC = () => {
         </div>
         <nav className="mt-10">
           <ul>
-            <li className="text-black">
-              <button type="button" className="py-2">
-                <p>友達一覧</p>
-              </button>
-            </li>
-            <li className="text-black">
-              <button type="button" className="py-2">
-                <p>友達追加</p>
-              </button>
-            </li>
-            <li className="text-black">
-              <button type="button" className="py-2">
-                <p>お気に入り</p>
-              </button>
-            </li>
-            <li className="text-black">
-              <button type="button" className="py-2">
-                <p>アカウント</p>
-              </button>
-            </li>
-            <li className="text-black">
-              <button type="button" className="py-2">
-                <p>カテゴリー設定</p>
-              </button>
-            </li>
+            {routes.map((route: Route) => {
+              return (
+                <li className="text-black" key={route.path}>
+                  <Link to={route.path} className="py-2 block">
+                    <p>{route.title}</p>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </div>
