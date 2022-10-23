@@ -9,7 +9,7 @@ export const IconMenuList:FC = () => {
           <li className="flex items-center flex-col">
             <Link to={`/`}>
               <img
-                className="h-5"
+                className="h-5 mx-auto my-0"
                 src={`${process.env.PUBLIC_URL}/images/icons/book1.png`}
                 alt=""
               />
@@ -19,7 +19,7 @@ export const IconMenuList:FC = () => {
           <li className="flex items-center flex-col">
             <Link to={`/post/`}>
               <img
-                className="h-5"
+                className="h-5 mx-auto my-0"
                 src={`${process.env.PUBLIC_URL}/images/icons/men1.png`}
                 alt=""
               />
@@ -29,7 +29,7 @@ export const IconMenuList:FC = () => {
           <li className="flex items-center flex-col">
             <Link to={`/like/`}>
               <img
-                className="h-5"
+                className="h-5 mx-auto my-0"
                 src={`${process.env.PUBLIC_URL}/images/icons/star1.png`}
                 alt=""
               />
@@ -39,7 +39,7 @@ export const IconMenuList:FC = () => {
           <li className="flex items-center flex-col">
             <Link to={`/calendar/`}>
               <img
-                className="h-5"
+                className="h-5 mx-auto my-0"
                 src={`${process.env.PUBLIC_URL}/images/icons/calendar1.png`}
                 alt=""
               />
@@ -49,7 +49,7 @@ export const IconMenuList:FC = () => {
           <li className="flex items-center flex-col">
             <Link to={`/account/`}>
               <img
-                className="h-5"
+                className="h-5 mx-auto my-0"
                 src={`${process.env.PUBLIC_URL}/images/icons/human2.png`}
                 alt=""
               />
