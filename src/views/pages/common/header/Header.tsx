@@ -9,7 +9,7 @@ export const Header:FC = () => {
     <>
       <Sidebar />
       <header className="">
-        <div className="px-4 pt-4 pb-4 bg-blue-primary regal-blue">
+        <div className="px-4 pt-4 pb-4 bg-blue-primary regal-blue flex justify-between">
           <div className="flex justify-start ">
             <img
               className="h-5"
