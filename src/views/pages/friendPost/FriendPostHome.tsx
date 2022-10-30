@@ -1,8 +1,18 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { BasicInput } from './BasicInput'
 import { ContactInput } from './ContactInput'
+import { MemoInput } from './MemoInput'
 
 export const FriendPostHome: FC = () => {
+  const [isProfile, setIsProfile] = useState(true)
+
+  const profileHandler = () => {
+    setIsProfile(true)
+  }
+  const memoHandler = () => {
+    setIsProfile(false)
+  }
+
   return (
     <>
       <div className="mt-16">
@@ -12,15 +22,32 @@ export const FriendPostHome: FC = () => {
           alt=""
         />
         <div className="mt-5 p-2 flex justify-between bg-slate-400 w-9/12 rounded-xl mx-auto text-blue-primary font-bold">
-          <p className="w-6/12  text-center bg-gray-50 rounded-lg">
+          <button
+            onClick={profileHandler}
+            className={`w-6/12  text-center rounded-xl ${
+              isProfile ? 'bg-gray-50' : ''
+            }`}
+          >
             プロフィール
-          </p>
-          <p className="w-6/12 text-center rounded-xl">メモ</p>
+          </button>
+          <button
+            onClick={memoHandler}
+            className={`w-6/12  text-center rounded-xl ${
+              !isProfile ? 'bg-gray-50' : ''
+            }`}
+          >
+            メモ
+          </button>
         </div>
       </div>
-
-      <BasicInput />
-      <ContactInput />
+      {isProfile ? (
+        <>
+          <BasicInput />
+          <ContactInput />
+        </>
+      ) : (
+        <MemoInput />
+      )}
 
       <button
         type="button"

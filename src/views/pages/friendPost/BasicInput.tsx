@@ -7,8 +7,8 @@ export const BasicInput: FC = () => {
         <div className="px-4 py-2 text-xl bg-slate-400 text-blue-primary font-bold">
           <p>基本情報</p>
         </div>
-        <ul className="px-4 mt-8">
-          <li className="flex mt-5">
+        <div className="px-4 mt-8">
+          <div className="flex mt-5">
             <label className="text-blue-primary font-bold w-28" htmlFor="">
               名前
             </label>
@@ -17,7 +17,7 @@ export const BasicInput: FC = () => {
               type="text"
               placeholder="山田 太郎"
             />
-          </li>
+          </div>
           <div className="flex mt-5">
             <label className="text-blue-primary font-bold w-28" htmlFor="">
               フリガナ
@@ -108,7 +108,7 @@ export const BasicInput: FC = () => {
               placeholder="エンジニア"
             />
           </div>
-        </ul>
+        </div>
       </div>
     </>
   )
