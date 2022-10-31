@@ -7,6 +7,7 @@ export const FriendHome: FC = () => {
     name: string
     image: string
     category: string
+    favorite: boolean
   }
 
   return (
@@ -15,7 +16,7 @@ export const FriendHome: FC = () => {
         return (
           <li
             key={friend.id}
-            className="flex items-center mt-6 text-blue-primary first:mt-0"
+            className="relative flex items-center mt-6 text-blue-primary first:mt-0"
           >
             <img
               className="rounded-xl h-16"
@@ -26,6 +27,13 @@ export const FriendHome: FC = () => {
               <p className="text-2xl">{friend.name}</p>
               <p className="text-xl">カテゴリー:{friend.category}</p>
             </div>
+            <img
+              className="h-10 absolute right-0"
+              src={`${process.env.PUBLIC_URL}/images/icons/star${
+                friend.favorite ? '2' : '1'
+              }.png`}
+              alt=""
+            />
           </li>
         )
       })}
