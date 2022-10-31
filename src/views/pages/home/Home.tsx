@@ -1,13 +1,9 @@
 import { FC, useState } from 'react'
-import { friendData } from 'testData'
+import { CategoryHome } from './CategoryHome';
+import { FriendHome } from './FriendHome';
+import { LikeHome } from './LikeHome';
 
 export const Home: FC = () => {
-  type FriendData = {
-    id: number
-    name: string
-    image: string
-    category: string
-  }
 
   const [choice, setChoice] = useState("friend");
 
@@ -69,27 +65,14 @@ export const Home: FC = () => {
         </button>
       </div>
 
-      <div className="mt-5">
-        <ul className="px-5">
-          {friendData.map((friend: FriendData) => {
-            return (
-              <li
-                key={friend.id}
-                className="flex items-center mt-6 text-blue-primary first:mt-0"
-              >
-                <img
-                  className="rounded-xl h-16"
-                  src={`${process.env.PUBLIC_URL}${friend.image}`}
-                  alt=""
-                />
-                <div className="ml-4">
-                  <p className="text-2xl">{friend.name}</p>
-                  <p className="text-xl">カテゴリー:{friend.category}</p>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
+      <div className="mt-5 px-5">
+        {choice === 'friend' ? (
+          <FriendHome />
+        ) : choice === 'category' ? (
+          <CategoryHome />
+        ) : (
+          <LikeHome />
+        )}
       </div>
     </>
   )
