@@ -15,7 +15,12 @@ type FriendData = {
   tiktok: string
   image: string
   category: string
-  favorite :boolean
+  favorite: boolean
+}
+
+type CategoryData = {
+  id: number
+  name: string
 }
 
 export const friendData: FriendData[] = [
@@ -36,7 +41,7 @@ export const friendData: FriendData[] = [
     tiktok: '@123456',
     image: '/images/sample/1.png',
     category: 'エンジニア',
-    favorite :true,
+    favorite: true,
   },
   {
     id: 2,
@@ -55,7 +60,7 @@ export const friendData: FriendData[] = [
     tiktok: '@123456',
     image: '/images/sample/2.jpg',
     category: '同僚',
-    favorite :false,
+    favorite: false,
   },
   {
     id: 3,
@@ -74,6 +79,25 @@ export const friendData: FriendData[] = [
     tiktok: '@123456',
     image: '/images/sample/3.jpg',
     category: '友達',
-    favorite :true,
+    favorite: true,
+  },
+]
+
+export const categoryData: CategoryData[] = [
+  {
+    id: 1,
+    name: '無所属',
+  },
+  {
+    id: 2,
+    name: '友人',
+  },
+  {
+    id: 3,
+    name: 'エンジニア',
+  },
+  {
+    id: 4,
+    name: '仕事の同僚',
   },
 ]
