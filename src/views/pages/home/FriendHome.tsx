@@ -28,7 +28,7 @@ export const FriendHome: FC = () => {
               <p className="text-xl">カテゴリー:{friend.category}</p>
             </div>
             <img
-              className="h-10 absolute right-0"
+              className="h-8 absolute right-0"
               src={`${process.env.PUBLIC_URL}/images/icons/star${
                 friend.favorite ? '2' : '1'
               }.png`}
