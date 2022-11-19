@@ -51,3 +51,21 @@ export const inputProfile: InputType[] = [
     placeholder: 'トモマネチャンネル',
   },
 ]
+
+export const inputLogin: InputType[] = [
+  {
+    id: 1,
+    label: 'メールアドレス',
+    placeholder: 'yama@yama.com',
+  },
+  {
+    id: 2,
+    label: '新パスワード',
+    placeholder: 'pass',
+  },
+  {
+    id: 3,
+    label: '確認パスワード',
+    placeholder: 'pass',
+  },
+]

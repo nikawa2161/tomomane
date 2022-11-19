@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
-import { inputProfile } from './inputFrom'
+import { LoginForm } from './LoginForm'
+import { ProfileForm } from './ProfileForm'
 
 export const AccountHome: FC = () => {
   const [isProfile, setIsProfile] = useState(true)
@@ -9,12 +10,6 @@ export const AccountHome: FC = () => {
   }
   const memoHandler = () => {
     setIsProfile(false)
-  }
-
-  type inputType = {
-    id: number
-    label: string
-    placeholder: string
   }
 
   return (
@@ -48,27 +43,8 @@ export const AccountHome: FC = () => {
             ログイン情報
           </button>
         </div>
-
-        {/* プロフィールフォーム */}
-        <div className="mt-8">
-          {inputProfile.map((input: inputType) => (
-            <div className="mt-5 flex justify-between" key={input.id}>
-              <p className="font-bold w-28 text-blue-primary">{input.label}</p>
-              <input
-                className="flex-1"
-                type="text"
-                placeholder={input.placeholder}
-              />
-            </div>
-          ))}
-        </div>
-        <button
-          type="button"
-          className="block mt-10 py-2 text-2xl w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
-        >
-          変更
-        </button>
       </div>
+      {isProfile ? <ProfileForm /> : <LoginForm />}
     </>
   )
 }
