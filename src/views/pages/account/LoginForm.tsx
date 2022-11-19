@@ -5,7 +5,8 @@ export const LoginForm: FC = () => {
   type inputType = {
     id: number
     label: string
-    placeholder: string
+    inputType: string
+    placeholder?: string
   }
 
   return (
@@ -16,7 +17,7 @@ export const LoginForm: FC = () => {
             <p className="font-bold w-32 text-blue-primary">{input.label}</p>
             <input
               className="flex-1"
-              type="text"
+              type={input.inputType}
               placeholder={input.placeholder}
             />
           </div>

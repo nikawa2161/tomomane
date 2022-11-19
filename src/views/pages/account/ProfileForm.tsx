@@ -5,7 +5,9 @@ export const ProfileForm: FC = () => {
   type inputType = {
     id: number
     label: string
-    placeholder: string
+    inputType: string
+    placeholder?: string
+    value?: string
   }
 
   return (
@@ -16,8 +18,9 @@ export const ProfileForm: FC = () => {
             <p className="font-bold w-28 text-blue-primary">{input.label}</p>
             <input
               className="flex-1"
-              type="text"
+              type={input.inputType}
               placeholder={input.placeholder}
+              defaultValue={input.value}
             />
           </div>
         ))}
