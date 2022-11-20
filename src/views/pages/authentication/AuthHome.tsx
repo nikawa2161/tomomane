@@ -1,6 +1,7 @@
-import { auth, provider } from '../../../firebase'
-import { signInWithPopup } from 'firebase/auth'
 import { FC } from 'react'
+import { auth, provider } from '../../../firebase'
+
+import { signInWithPopup } from 'firebase/auth'
 
 export const AuthHome: FC = () => {
   const sinInWithGoogle = () => {
