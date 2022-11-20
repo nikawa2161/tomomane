@@ -1,10 +1,11 @@
 import { FC } from 'react'
+import { auth } from '../../../../firebase'
 
 import { slide as Menu } from 'react-burger-menu'
 import { IconContext } from 'react-icons'
 import { FaUser } from 'react-icons/fa'
-
 import { Link } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 type Route = {
   path: string
@@ -12,6 +13,8 @@ type Route = {
 }
 
 export const Sidebar: FC = () => {
+  const [user] = useAuthState(auth)
+
   const routes: Route[] = [
     {
       path: '/',
@@ -39,13 +42,21 @@ export const Sidebar: FC = () => {
       <div>
         <div className="flex items-center flex-start">
           <figure className="w-14 h-14 rounded-full truncate shadow-lg shadow-gray-300">
-            <IconContext.Provider
-              value={{ className: 'text-sky-500 w-full h-full' }}
-            >
-              <FaUser />
-            </IconContext.Provider>
+            {auth.currentUser?.photoURL ? (
+              <img src={auth.currentUser?.photoURL} alt="" />
+            ) : (
+              <IconContext.Provider
+                value={{ className: 'text-sky-500 w-full h-full' }}
+              >
+                <FaUser />
+              </IconContext.Provider>
+            )}
           </figure>
-          <p className="ml-5 text-lg font-extrabold">吉田 太郎</p>
+          <p className="ml-5 text-lg font-extrabold">
+            {auth.currentUser?.displayName
+              ? auth.currentUser?.displayName
+              : 'ユーザー'}
+          </p>
         </div>
         <nav className="mt-10">
           <ul>
@@ -59,6 +70,22 @@ export const Sidebar: FC = () => {
               )
             })}
           </ul>
+          {user ? (
+            <button
+              type="button"
+              className="block mt-10 py-2 text-base w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
+              onClick={() => auth.signOut()}
+            >
+              ログアウト
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="block mt-10 py-2 text-base w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
+            >
+              ログイン
+            </button>
+          )}
         </nav>
       </div>
     </Menu>
