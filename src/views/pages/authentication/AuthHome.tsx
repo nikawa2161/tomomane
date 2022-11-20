@@ -33,10 +33,15 @@ export const AuthHome: FC = () => {
           </button>
           <button
             type="button"
-            className="block mt-10 py-2 text-2xl w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
+            className="flex justify-between items-center mt-10 py-2 px-5 text-xl w-4/5 mx-auto rounded-xl bg-blue-google text-white"
             onClick={sinInWithGoogle}
           >
-            Googleでログイン
+            <img
+              className="h-8"
+              src={`${process.env.PUBLIC_URL}/images/logo/btn_google_dark_normal_ios.svg`}
+              alt=""
+            />
+            <p className='flex-1'>Googleでログイン</p>
           </button>
         </div>
       </div>

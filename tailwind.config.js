@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         blue: {
           primary: '#192555',
+          google: '#4284f4',
         },
       },
     },
