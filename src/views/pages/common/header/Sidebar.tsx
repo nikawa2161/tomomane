@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons'
 import { FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 
 type Route = {
   path: string
@@ -70,22 +71,15 @@ export const Sidebar: FC = () => {
               )
             })}
           </ul>
-          {user ? (
-            <button
-              type="button"
-              className="block mt-10 py-2 text-base w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
-              onClick={() => auth.signOut()}
-            >
-              ログアウト
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="block mt-10 py-2 text-base w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
-            >
-              ログイン
-            </button>
-          )}
+          <div className="mt-10 w-4/5 mx-auto">
+            {user ? (
+              <PrimaryButton onClick={() => auth.signOut()}>
+                ログアウト
+              </PrimaryButton>
+            ) : (
+              <PrimaryButton>ログイン</PrimaryButton>
+            )}
+          </div>
         </nav>
       </div>
     </Menu>

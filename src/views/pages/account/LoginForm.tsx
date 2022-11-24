@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { inputLogin } from './inputFrom'
 
 export const LoginForm: FC = () => {
@@ -27,12 +28,9 @@ export const LoginForm: FC = () => {
           <span className="inline-block">忘れないようにメモしてください</span>
         </p>
 
-        <button
-          type="button"
-          className="block mt-10 py-2 text-2xl w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
-        >
-          変更
-        </button>
+        <div className="mt-10 w-4/5 mx-auto">
+          <PrimaryButton>変更</PrimaryButton>
+        </div>
       </div>
       <div className="mt-20">
         <div className="px-4 py-2 text-xl bg-slate-400 text-blue-primary font-bold">
@@ -48,12 +46,11 @@ export const LoginForm: FC = () => {
               新しくアカウントを作成して下さい。
             </span>
           </p>
-          <button
-            type="button"
-            className="block mt-10 py-2 font-bold text-2xl w-4/5 mx-auto rounded-xl bg-gray-300 text-rose-500"
-          >
-            アカウント削除
-          </button>
+          <div className="mt-10 w-4/5 mx-auto">
+            <PrimaryButton className="bg-gray-300 text-rose-500 font-bold">
+              アカウント削除
+            </PrimaryButton>
+          </div>
         </div>
       </div>
     </>

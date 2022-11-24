@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { BasicInput } from './BasicInput'
 import { ContactInput } from './ContactInput'
 import { MemoInput } from './MemoInput'
@@ -49,12 +50,9 @@ export const FriendPostHome: FC = () => {
         <MemoInput />
       )}
 
-      <button
-        type="button"
-        className="block mt-10 py-2 text-2xl w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
-      >
-        追加
-      </button>
+      <div className="mt-10 w-4/5 mx-auto">
+        <PrimaryButton>追加</PrimaryButton>
+      </div>
     </>
   )
 }
