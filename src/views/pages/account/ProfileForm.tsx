@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { inputProfile } from './inputFrom'
 
 export const ProfileForm: FC = () => {
@@ -24,13 +25,9 @@ export const ProfileForm: FC = () => {
             />
           </div>
         ))}
-
-        <button
-          type="button"
-          className="block mt-10 py-2 text-2xl w-4/5 mx-auto rounded-xl bg-sky-400 text-white"
-        >
-          変更
-        </button>
+        <div className="mt-10 w-4/5 mx-auto">
+          <PrimaryButton>変更</PrimaryButton>
+        </div>
       </div>
     </>
   )
