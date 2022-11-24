@@ -28,18 +28,19 @@ export const AuthHome: FC = () => {
               新規登録
             </PrimaryButton>
           </div>
-          <button
-            type="button"
-            className="flex justify-between items-center mt-10 py-2 px-5 text-xl w-4/5 mx-auto rounded-xl bg-blue-google text-white"
-            onClick={sinInWithGoogle}
-          >
-            <img
-              className="h-8"
-              src={`${process.env.PUBLIC_URL}/images/logo/btn_google_dark_normal_ios.svg`}
-              alt=""
-            />
-            <p className="flex-1">Googleでログイン</p>
-          </button>
+          <div className="mt-10 w-4/5 mx-auto">
+            <PrimaryButton
+              className="flex justify-between items-center px-5 text-xl bg-blue-google text-white"
+              onClick={sinInWithGoogle}
+            >
+              <img
+                className="h-8"
+                src={`${process.env.PUBLIC_URL}/images/logo/btn_google_dark_normal_ios.svg`}
+                alt=""
+              />
+              <p className="flex-1">Googleでログイン</p>
+            </PrimaryButton>
+          </div>
         </div>
       </div>
     </>
