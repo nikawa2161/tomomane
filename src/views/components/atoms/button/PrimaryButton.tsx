@@ -21,5 +21,5 @@ export const PrimaryButton: FC<MyComponentsProps> = (props) => {
   )
 }
 PrimaryButton.defaultProps = {
-  className : 'bg-sky-400 text-white'
+  className: 'bg-blue-secondary text-white',
 }
