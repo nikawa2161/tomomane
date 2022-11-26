@@ -13,10 +13,10 @@ export const Router: FC = () => {
     <>
       <Routes>
         <Route path={`/`} element={<Home />} />
-        <Route path={`/post/`} element={<FriendPostHome />} />
-        <Route path={`/like/`} element={<LikesHome />} />
-        <Route path={`/calendar/`} element={<CalenderHome />} />
-        <Route path={`/account/`} element={<AccountHome />} />
+        <Route path={`post/`} element={<FriendPostHome />} />
+        <Route path={`like/`} element={<LikesHome />} />
+        <Route path={`calendar/`} element={<CalenderHome />} />
+        <Route path={`account/`} element={<AccountHome />} />
         <Route path={`*`} element={<NotFound />} />
       </Routes>
     </>

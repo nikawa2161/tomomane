@@ -3,12 +3,11 @@ import { Sidebar } from './Sidebar'
 import { IconMenuList } from './IconMenuList'
 import './hamburger.css'
 
-
-export const Header:FC = () => {
+export const Header: FC = () => {
   return (
     <>
-      <Sidebar />
       <header className="fixed top-0 inset-x-0 z-50">
+        <Sidebar />
         <div className="px-4 pt-4 pb-4 bg-blue-primary regal-blue flex justify-between">
           <div className="flex justify-start ">
             <img
