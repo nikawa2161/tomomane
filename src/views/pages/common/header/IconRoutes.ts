@@ -1,33 +1,35 @@
+import { IconsName } from 'types/icon'
+
 type RoutesItem = {
   path: string
-  imageUrl: string
+  iconName: IconsName
   title: string
 }
 
 export const IconRoutes: RoutesItem[] = [
   {
     path: '/',
-    imageUrl: '/images/icons/book1.png',
+    iconName: 'ImAddressBook',
     title: 'トモダチ',
   },
   {
-    path: '/post/',
-    imageUrl: '/images/icons/men1.png',
+    path: 'post',
+    iconName: 'ImUserPlus',
     title: '友達追加',
   },
   {
-    path: '/like/',
-    imageUrl: '/images/icons/star1.png',
+    path: 'like',
+    iconName: 'IoStar',
     title: 'お気に入り',
   },
   {
-    path: '/calendar/',
-    imageUrl: '/images/icons/calendar1.png',
+    path: 'calendar',
+    iconName: 'ImCalendar',
     title: 'カレンダー',
   },
   {
-    path: '/account/',
-    imageUrl: '/images/icons/human2.png',
+    path: 'account',
+    iconName: 'BsPersonCircle',
     title: 'アカウント',
-  }
+  },
 ]

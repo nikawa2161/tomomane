@@ -1,4 +1,4 @@
-import { Icons } from 'icon/icon'
+import { Icons } from 'ReactIcon/icon'
 
 export type IconsName = keyof typeof Icons
 
