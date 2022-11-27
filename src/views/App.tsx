@@ -1,9 +1,10 @@
 import { FC } from 'react'
-import { AuthHome } from './pages/authentication/AuthHome'
 import { Header } from './pages/common/header/Header'
+import {Footer} from './pages/common/Footer'
+import { AuthHome } from './pages/authentication/AuthHome'
 import { Router } from '../router/Router'
-
 import { auth } from '../firebase'
+
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 export const App: FC = () => {
@@ -12,9 +13,14 @@ export const App: FC = () => {
 
   return (
     <>
-      <div className="App h-screen">
-        <Header />
-        <div className="pt-32">{user ? <Router /> : <AuthHome />}</div>
+      <div className="App">
+        <div className="min-h-screen">
+          <Header />
+          <div className="pt-32 min-h-screen">
+            {user ? <Router /> : <AuthHome />}
+          </div>
+        </div>
+        <Footer />
       </div>
     </>
   )

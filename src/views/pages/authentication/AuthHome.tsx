@@ -12,8 +12,8 @@ export const AuthHome: FC = () => {
 
   return (
     <>
-      <div className="p-5 h-3/4">
-        <div className="h-full flex items-center flex-col justify-center pb-1 text-sm">
+      <div className="px-5 mt-16 ">
+        <div className="flex items-center flex-col justify-center pb-1 text-sm">
           <img
             src={`${process.env.PUBLIC_URL}/images/icons/book1.png`}
             alt="ソート"

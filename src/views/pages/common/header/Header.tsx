@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Sidebar } from './Sidebar'
-import { IconMenuList } from './IconMenuList'
+import { HeaderIcon } from './HeaderIcon'
 import './hamburger.css'
 
 export const Header: FC = () => {
@@ -18,7 +18,19 @@ export const Header: FC = () => {
           </div>
         </div>
 
-        <IconMenuList />
+        <div className="px-4 pb-4 pt-2 bg-blue-primary regal-blue md:hidden">
+          <ul className="flex justify-between">
+            <HeaderIcon url="/" iconName="ImAddressBook" title="トモダチ" />
+            <HeaderIcon url="post" iconName="ImUserPlus" title="友達追加" />
+            <HeaderIcon url="like" iconName="IoStar" title="お気に入り" />
+            <HeaderIcon url="calendar" iconName="ImCalendar" title="カレンダー" />
+            <HeaderIcon
+              url="account"
+              iconName="BsPersonCircle"
+              title="アカウント"
+            />
+          </ul>
+        </div>
       </header>
     </>
   )
