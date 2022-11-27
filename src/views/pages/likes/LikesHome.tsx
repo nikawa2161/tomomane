@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { ReactIcon } from 'ReactIcon/icon';
 import { LikeHome } from '../home/LikeHome'
 
 export const LikesHome: FC = () => {
@@ -14,15 +15,15 @@ export const LikesHome: FC = () => {
         <div className="relative mt-5 pb-1 flex justify-between border-b solid border-current text-sm">
           <p>○件</p>
           <div className="">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/icons/filter1.png`}
-              alt="ソート"
-              className="h-4 absolute  -translate-y-2/4 top-1/2"
+            <ReactIcon
+              name="BsArrowDownUp"
+              size={20}
+              className="text-black absolute -translate-1/2"
             />
             <button
               onClick={handleMenu}
               id=""
-              className="w-auto pl-5 text-right"
+              className="w-auto pl-6 text-right"
             >
               並び替え
             </button>
@@ -37,9 +38,7 @@ export const LikesHome: FC = () => {
               <li className="p-3 border-b border border-current">
                 古いお気に入り順
               </li>
-              <li className="p-3 border-b border border-current">
-                名前順
-              </li>
+              <li className="p-3 border-b border border-current">名前順</li>
             </ul>
           </div>
         </div>
