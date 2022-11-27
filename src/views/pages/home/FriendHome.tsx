@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { friendData } from 'testData'
+import { ReactIcon } from 'ReactIcon/icon'
 
 export const FriendHome: FC = () => {
   type FriendData = {
@@ -16,23 +17,25 @@ export const FriendHome: FC = () => {
         return (
           <li
             key={friend.id}
-            className="relative flex items-center mt-6 text-blue-primary first:mt-0"
+            className="relative flex items-center mt-4 text-blue-primary first:mt-0"
           >
             <img
-              className="rounded-xl h-16"
+              className="rounded-xl h-12"
               src={`${process.env.PUBLIC_URL}${friend.image}`}
               alt=""
             />
             <div className="ml-4">
-              <p className="text-2xl">{friend.name}</p>
-              <p className="text-xl">カテゴリー:{friend.category}</p>
+              <p className="text-lg">{friend.name}</p>
+              <p className="text-base">カテゴリー:{friend.category}</p>
             </div>
-            <img
-              className="h-8 absolute right-0"
-              src={`${process.env.PUBLIC_URL}/images/icons/star${
-                friend.favorite ? '2' : '1'
-              }.png`}
-              alt=""
+            <ReactIcon
+              name="IoStar"
+              size={25}
+              className={
+                friend.favorite
+                  ? 'absolute right-0 text-blue-secondary'
+                  : 'absolute right-0 text-slate-300'
+              }
             />
           </li>
         )
