@@ -16,7 +16,9 @@ export const App: FC = () => {
       <div className="App">
         <div className="min-h-screen">
           <Header />
-          <div className="pt-32">{user ? <Router /> : <AuthHome />}</div>
+          <div className="pt-32 min-h-screen">
+            {user ? <Router /> : <AuthHome />}
+          </div>
         </div>
         <Footer />
       </div>
