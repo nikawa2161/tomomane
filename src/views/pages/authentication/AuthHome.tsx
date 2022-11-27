@@ -3,6 +3,7 @@ import { auth, provider } from '../../../firebase'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 
 import { signInWithPopup } from 'firebase/auth'
+import { ReactIcon } from 'ReactIcon/icon'
 
 export const AuthHome: FC = () => {
   const sinInWithGoogle = () => {
@@ -14,10 +15,10 @@ export const AuthHome: FC = () => {
     <>
       <div className="px-5 mt-16 ">
         <div className="flex items-center flex-col justify-center pb-1 text-sm">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/icons/book1.png`}
-            alt="ソート"
-            className="h-28"
+          <ReactIcon
+            name="ImAddressBook"
+            size={110}
+            className="text-slate-500"
           />
           <p className="mt-5 text-center">ログインが必要です。</p>
           <div className="mt-10 w-4/5 mx-auto">
