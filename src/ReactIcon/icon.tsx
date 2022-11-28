@@ -3,6 +3,7 @@ import { Icon } from 'types/icon'
 import { ImUserPlus, ImCalendar, ImAddressBook } from 'react-icons/im'
 import { IoStar } from 'react-icons/io5'
 import { BsPersonCircle, BsArrowDownUp } from 'react-icons/bs'
+import { FaUser } from 'react-icons/fa'
 
 // typesで使用
 export const Icons = {
@@ -12,6 +13,7 @@ export const Icons = {
   ImCalendar,
   BsPersonCircle,
   BsArrowDownUp,
+  FaUser,
 }
 
 export const ReactIcon = ({ name, size, className }: Icon) => {
