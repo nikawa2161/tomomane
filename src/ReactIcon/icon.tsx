@@ -1,6 +1,6 @@
 import { Icon } from 'types/icon'
 
-import { ImUserPlus, ImCalendar, ImAddressBook } from 'react-icons/im'
+import { ImUserPlus, ImCalendar, ImAddressBook, ImSearch } from 'react-icons/im'
 import { IoStar } from 'react-icons/io5'
 import { BsPersonCircle, BsArrowDownUp } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa'
@@ -14,6 +14,7 @@ export const Icons = {
   BsPersonCircle,
   BsArrowDownUp,
   FaUser,
+  ImSearch,
 }
 
 export const ReactIcon = ({ name, size, className }: Icon) => {

@@ -36,7 +36,7 @@ export const Sidebar: FC = () => {
             <SidebarIcon url="post" iconName="ImUserPlus" title="友達追加" />
             <SidebarIcon url="like" iconName="IoStar" title="お気に入り" />
             <SidebarIcon
-              url="calender"
+              url="calendar"
               iconName="ImCalendar"
               title="カレンダー"
             />
