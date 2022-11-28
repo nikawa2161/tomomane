@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { InputLabel } from './InputLabel'
 
 export const ContactInput: FC = () => {
   return (
@@ -8,66 +9,16 @@ export const ContactInput: FC = () => {
           <p>連絡先</p>
         </div>
         <form className="px-4 mt-8" action="">
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              電話番号
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="080-1234-5678"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              メアド
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="yamada@taro.com"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              Twitter
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="@yamataro"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              FaceBook
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="@yamataro"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              Instagram
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="@yamataro"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              TikTok
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="@yamataro"
-            />
-          </div>
+          <InputLabel name="電話番号" placeholder="080-1234-5678" type="tel" />
+          <InputLabel
+            name="メアド"
+            placeholder="yamada@taro.com"
+            type="email"
+          />
+          <InputLabel name="Twitter" placeholder="@yamataro" />
+          <InputLabel name="FaceBook" placeholder="@yamataro" />
+          <InputLabel name="Instagram" placeholder="@yamataro" />
+          <InputLabel name="TikTok" placeholder="@yamataro" />
         </form>
       </div>
     </>

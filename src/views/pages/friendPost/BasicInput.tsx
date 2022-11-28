@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { InputLabel } from './InputLabel'
 
 export const BasicInput: FC = () => {
   return (
@@ -8,106 +9,16 @@ export const BasicInput: FC = () => {
           <p>基本情報</p>
         </div>
         <div className="px-4 mt-8">
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              名前
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="山田 太郎"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              フリガナ
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="ヤマダ タロウ"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              ニックネーム
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="ヤマちゃん"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              性別
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="男性"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              誕生日
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="1998年2月20日"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              出身地
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="沖縄"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              住所
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="神奈川県"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              職業
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="エンジニア"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              関係
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="同僚"
-            />
-          </div>
-          <div className="flex mt-5">
-            <label className="text-blue-primary font-bold w-28" htmlFor="">
-              カテゴリー
-            </label>
-            <input
-              className="font-bold flex-1"
-              type="text"
-              placeholder="エンジニア"
-            />
-          </div>
+          <InputLabel name="名前" placeholder="山田 太郎" />
+          <InputLabel name="フリガナ" placeholder="ヤマダ タロウ" />
+          <InputLabel name="ニックネーム" placeholder="ヤマちゃん" />
+          <InputLabel name="性別" placeholder="男性" />
+          <InputLabel name="誕生日" value="2000-01" type="month" />
+          <InputLabel name="出身地" placeholder="沖縄" />
+          <InputLabel name="住所" placeholder="東京都" />
+          <InputLabel name="職業" placeholder="エンジニア" />
+          <InputLabel name="関係" placeholder="同僚" />
+          <InputLabel name="カテゴリー" placeholder="エンジニア" />
         </div>
       </div>
     </>
