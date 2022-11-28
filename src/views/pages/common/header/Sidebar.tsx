@@ -1,43 +1,15 @@
 import { FC } from 'react'
 import { auth } from '../../../../firebase'
-
-import { slide as Menu } from 'react-burger-menu'
-import { IconContext } from 'react-icons'
-import { FaUser } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import { useAuthState } from 'react-firebase-hooks/auth'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 
-type Route = {
-  path: string
-  title: string
-}
+import { slide as Menu } from 'react-burger-menu'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { SidebarIcon } from './SidebarIcon'
+import { ReactIcon } from 'ReactIcon/icon'
 
 export const Sidebar: FC = () => {
   const [user] = useAuthState(auth)
 
-  const routes: Route[] = [
-    {
-      path: '/',
-      title: '友達一覧',
-    },
-    {
-      path: '/post/',
-      title: '友達追加',
-    },
-    {
-      path: '/like/',
-      title: 'お気に入り',
-    },
-    {
-      path: '/calendar/',
-      title: 'カレンダー',
-    },
-    {
-      path: '/account/',
-      title: 'アカウント',
-    },
-  ]
   return (
     <Menu>
       <div>
@@ -46,14 +18,13 @@ export const Sidebar: FC = () => {
             {auth.currentUser?.photoURL ? (
               <img src={auth.currentUser?.photoURL} alt="" />
             ) : (
-              <IconContext.Provider
-                value={{ className: 'text-sky-500 w-full h-full' }}
-              >
-                <FaUser />
-              </IconContext.Provider>
+              <ReactIcon
+                name={`FaUser`}
+                className="text-blue-secondary w-full h-full"
+              />
             )}
           </figure>
-          <p className="ml-5 text-lg font-extrabold">
+          <p className="ml-5 text-base font-extrabold">
             {auth.currentUser?.displayName
               ? auth.currentUser?.displayName
               : 'ユーザー'}
@@ -61,15 +32,19 @@ export const Sidebar: FC = () => {
         </div>
         <nav className="mt-10">
           <ul>
-            {routes.map((route: Route) => {
-              return (
-                <li className="text-black" key={route.path}>
-                  <Link to={route.path} className="py-2 block">
-                    <p>{route.title}</p>
-                  </Link>
-                </li>
-              )
-            })}
+            <SidebarIcon url="/" iconName="ImAddressBook" title="友達一覧" />
+            <SidebarIcon url="post" iconName="ImUserPlus" title="友達追加" />
+            <SidebarIcon url="like" iconName="IoStar" title="お気に入り" />
+            <SidebarIcon
+              url="calendar"
+              iconName="ImCalendar"
+              title="カレンダー"
+            />
+            <SidebarIcon
+              url="account"
+              iconName="BsPersonCircle"
+              title="アカウント"
+            />
           </ul>
           <div className="mt-10 w-4/5 mx-auto">
             {user ? (

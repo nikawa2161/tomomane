@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import { ReactIcon } from 'ReactIcon/icon';
 import { CategoryHome } from './CategoryHome';
 import { FriendHome } from './FriendHome';
 import { LikeHome } from './LikeHome';
@@ -29,11 +30,7 @@ export const Home: FC = () => {
       </div>
       <div className="my-2 mx-2 py-1 px-1 rounded-2xl bg-slate-100">
         <div className="px-4 flex items-center text-blue-primary">
-          <img
-            className="h-3"
-            src={`${process.env.PUBLIC_URL}/images/icons/search1.png`}
-            alt=""
-          />
+          <ReactIcon name="ImSearch" size={15} />
           <p className="ml-1">検索</p>
           <input className="flex-1 ml-3 bg-transparent" type="text" />
         </div>
