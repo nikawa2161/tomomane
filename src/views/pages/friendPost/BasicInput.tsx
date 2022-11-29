@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { InputLabel } from './InputLabel'
+import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
 
 export const BasicInput: FC = () => {
   return (

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { InputLabel } from './InputLabel'
+import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
 
 export const ContactInput: FC = () => {
   return (
@@ -19,6 +19,7 @@ export const ContactInput: FC = () => {
           <InputLabel name="FaceBook" placeholder="@yamataro" />
           <InputLabel name="Instagram" placeholder="@yamataro" />
           <InputLabel name="TikTok" placeholder="@yamataro" />
+          <InputLabel name="YouTube" placeholder="トモマネチャンネル" />
         </form>
       </div>
     </>

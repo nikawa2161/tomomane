@@ -16,7 +16,7 @@ export const InputLabel: FC<Input> = ({
   return (
     <>
       <div className="flex mt-5">
-        <label className="text-blue-primary font-bold w-28" htmlFor="">
+        <label className="text-blue-primary font-bold w-32" htmlFor="">
           {name}
         </label>
         <input

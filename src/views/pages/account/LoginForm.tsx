@@ -1,28 +1,18 @@
 import { FC } from 'react'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
-import { inputLogin } from './inputFrom'
+import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
 
 export const LoginForm: FC = () => {
-  type inputType = {
-    id: number
-    label: string
-    inputType: string
-    placeholder?: string
-  }
-
   return (
     <>
       <div className="px-5 pb-5 mt-8">
-        {inputLogin.map((input: inputType) => (
-          <div className="mt-5 flex justify-between" key={input.id}>
-            <p className="font-bold w-32 text-blue-primary">{input.label}</p>
-            <input
-              className="flex-1"
-              type={input.inputType}
-              placeholder={input.placeholder}
-            />
-          </div>
-        ))}
+        <InputLabel
+          name="メールアドレス"
+          placeholder="yama@yama.com"
+          type="email"
+        />
+        <InputLabel name="新パスワード" placeholder="pass" type="password" />
+        <InputLabel name="確認パスワード" placeholder="pass" type="password" />
         <p className="mt-5 text-center">
           ログイン時に使用します。
           <span className="inline-block">忘れないようにメモしてください</span>
