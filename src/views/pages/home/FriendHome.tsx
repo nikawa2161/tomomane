@@ -1,19 +1,24 @@
-import { FC } from 'react'
-import { friendData } from 'testData'
+import { FC, useContext } from 'react'
 import { ReactIcon } from 'ReactIcon/icon'
+import { FriendContext } from 'providers/FriendProvider'
 
 export const FriendHome: FC = () => {
-  type FriendData = {
+  type FriendType = {
     id: number
     name: string
     image: string
     category: string
     favorite: boolean
   }
+  type FriendContextType = {
+    userInfo: FriendType[]
+  }
+
+  const { userInfo } = useContext(FriendContext) as FriendContextType;
 
   return (
     <ul>
-      {friendData.map((friend: FriendData) => {
+      {userInfo.map((friend: FriendType) => {
         return (
           <li
             key={friend.id}

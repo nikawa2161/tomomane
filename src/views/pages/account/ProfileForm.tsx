@@ -1,30 +1,20 @@
 import { FC } from 'react'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
-import { inputProfile } from './inputFrom'
+import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
 
 export const ProfileForm: FC = () => {
-  type inputType = {
-    id: number
-    label: string
-    inputType: string
-    placeholder?: string
-    value?: string
-  }
-
   return (
     <>
       <div className="px-5 pb-5 mt-8">
-        {inputProfile.map((input: inputType) => (
-          <div className="mt-5 flex justify-between" key={input.id}>
-            <p className="font-bold w-28 text-blue-primary">{input.label}</p>
-            <input
-              className="flex-1"
-              type={input.inputType}
-              placeholder={input.placeholder}
-              defaultValue={input.value}
-            />
-          </div>
-        ))}
+        <InputLabel label="性別" placeholder="男性" />
+        <InputLabel label="誕生日" value="2000-01" type="month" />
+        <InputLabel label="住所" placeholder="東京" />
+        <InputLabel label="職業" placeholder="エンジニア" />
+        <InputLabel label="電話番号" placeholder="090-1234-5678" type="tel" />
+        <InputLabel label="Twitter" placeholder="@tomomane" />
+        <InputLabel label="instagram" placeholder="@tomomane" />
+        <InputLabel label="TikTok" placeholder="@tomomane" />
+        <InputLabel label="YouTube" placeholder="トモマネチャンネル" />
         <div className="mt-10 w-4/5 mx-auto">
           <PrimaryButton>変更</PrimaryButton>
         </div>
