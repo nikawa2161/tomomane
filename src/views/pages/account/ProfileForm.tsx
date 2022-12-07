@@ -6,15 +6,15 @@ export const ProfileForm: FC = () => {
   return (
     <>
       <div className="px-5 pb-5 mt-8">
-        <InputLabel name="性別" placeholder="男性" />
-        <InputLabel name="誕生日" value="2000-01" type="month" />
-        <InputLabel name="住所" placeholder="東京" />
-        <InputLabel name="職業" placeholder="エンジニア" />
-        <InputLabel name="電話番号" placeholder="090-1234-5678" type="tel" />
-        <InputLabel name="Twitter" placeholder="@tomomane" />
-        <InputLabel name="instagram" placeholder="@tomomane" />
-        <InputLabel name="TikTok" placeholder="@tomomane" />
-        <InputLabel name="YouTube" placeholder="トモマネチャンネル" />
+        <InputLabel label="性別" placeholder="男性" />
+        <InputLabel label="誕生日" value="2000-01" type="month" />
+        <InputLabel label="住所" placeholder="東京" />
+        <InputLabel label="職業" placeholder="エンジニア" />
+        <InputLabel label="電話番号" placeholder="090-1234-5678" type="tel" />
+        <InputLabel label="Twitter" placeholder="@tomomane" />
+        <InputLabel label="instagram" placeholder="@tomomane" />
+        <InputLabel label="TikTok" placeholder="@tomomane" />
+        <InputLabel label="YouTube" placeholder="トモマネチャンネル" />
         <div className="mt-10 w-4/5 mx-auto">
           <PrimaryButton>変更</PrimaryButton>
         </div>

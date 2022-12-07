@@ -7,12 +7,12 @@ export const LoginForm: FC = () => {
     <>
       <div className="px-5 pb-5 mt-8">
         <InputLabel
-          name="メールアドレス"
+          label="メールアドレス"
           placeholder="yama@yama.com"
           type="email"
         />
-        <InputLabel name="新パスワード" placeholder="pass" type="password" />
-        <InputLabel name="確認パスワード" placeholder="pass" type="password" />
+        <InputLabel label="新パスワード" placeholder="pass" type="password" />
+        <InputLabel label="確認パスワード" placeholder="pass" type="password" />
         <p className="mt-5 text-center">
           ログイン時に使用します。
           <span className="inline-block">忘れないようにメモしてください</span>
