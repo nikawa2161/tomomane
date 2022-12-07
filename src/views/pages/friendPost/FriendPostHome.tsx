@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { BasicInput } from './BasicInput'
-import { ContactInput } from './ContactInput'
+// import { ContactInput } from './ContactInput'
 import { MemoInput } from './MemoInput'
 
 export const FriendPostHome: FC = () => {
@@ -44,7 +44,6 @@ export const FriendPostHome: FC = () => {
       {isProfile ? (
         <>
           <BasicInput />
-          <ContactInput />
         </>
       ) : (
         <MemoInput />
