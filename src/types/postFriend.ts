@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react"
 
 export interface IFriend {
-  id: number
+  id: string
   name: string
   sex: number
   birthday: number

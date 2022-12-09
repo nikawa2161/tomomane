@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom'
 export const BasicInput: FC = () => {
   /* @ts-ignore */
   const { userInfo, setUserInfo } = useContext(FriendContext)
-  console.log(userInfo)
 
   const navigate = useNavigate()
 

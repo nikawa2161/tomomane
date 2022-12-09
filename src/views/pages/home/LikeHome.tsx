@@ -3,7 +3,7 @@ import { ReactIcon } from 'ReactIcon/icon'
 import { FriendContext } from 'providers/FriendProvider'
 
 type FriendType = {
-  id: number
+  id: string
   name: string
   image: string
   category: string
