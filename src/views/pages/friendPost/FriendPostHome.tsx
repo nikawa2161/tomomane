@@ -1,6 +1,5 @@
 import { FC, useState } from 'react'
 import { BasicInput } from './BasicInput'
-// import { ContactInput } from './ContactInput'
 import { MemoInput } from './MemoInput'
 
 export const FriendPostHome: FC = () => {

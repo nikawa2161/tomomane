@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-// import { getAnalytics } from 'firebase/analytics'
+import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { GoogleAuthProvider } from 'firebase/auth'
 
@@ -15,9 +15,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-// const analytics = getAnalytics(app)
 const auth = getAuth(app)
 // googleのポップアップを提供
 const provider = new GoogleAuthProvider()
 
-export { auth, provider }
+// データベース連携
+const db = getFirestore(app)
+
+export { auth, provider, db }
