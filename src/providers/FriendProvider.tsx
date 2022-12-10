@@ -1,6 +1,6 @@
 import { createContext, FC, ReactNode, useEffect, useState } from 'react'
 import { FriendContextType, IFriend } from 'types/postFriend'
-import { db } from '../firebase'
+import { dbFireStore } from '../firebase'
 
 import { collection, getDocs } from 'firebase/firestore'
 
@@ -11,15 +11,18 @@ type ChildrenType = {
 export const FriendContext = createContext<FriendContextType | null>(null)
 
 export const FriendProvider: FC<ChildrenType> = ({ children }) => {
+  const [userInfo, setUserInfo] = useState<IFriend[]>([])
+
   // 取得は一回のみで良いので、useEffectを使用
   useEffect(() => {
-    const postData = collection(db, 'post')
+    const postData = collection(dbFireStore, 'post')
     getDocs(postData).then((snapShot) => {
       /* @ts-ignore */
       setUserInfo(snapShot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      alert("データの取得")
     })
   }, [])
-  const [userInfo, setUserInfo] = useState<IFriend[]>([])
+  
 
   return (
     <FriendContext.Provider

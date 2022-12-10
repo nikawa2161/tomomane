@@ -2,8 +2,11 @@ import { FC, useContext, useState } from 'react'
 import { FriendContext } from 'providers/FriendProvider'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
+import { dbFireStore } from '../../../firebase'
 
 import { useNavigate } from 'react-router-dom'
+import { doc, setDoc } from 'firebase/firestore'
+import { v4 as uuidv4 } from 'uuid'
 
 export const BasicInput: FC = () => {
   /* @ts-ignore */
@@ -11,28 +14,35 @@ export const BasicInput: FC = () => {
 
   const navigate = useNavigate()
 
+  const uuid = uuidv4()
+  const friendId = `firend?${uuid}`
+
   const onFriendPost = () => {
+    const friendRef = doc(dbFireStore, 'post', friendId)
+
+    setDoc(friendRef, isPost)
     setUserInfo([...userInfo, isPost])
+    alert('友達を追加しました。')
+
     navigate('/')
   }
 
   const [isPost, setIsPost] = useState({
-    id: 6,
-    name: '',
+    name: null,
     sex: 0,
-    birthday: '',
-    address: '',
-    work: '',
-    relationship: '',
-    phone: 33333333333,
-    email: '',
-    twitter: '',
-    facebook: '',
-    instagram: '',
-    tiktok: '',
+    birthday: null,
+    address: null,
+    work: null,
+    relationship: null,
+    phone: null,
+    email: null,
+    twitter: null,
+    facebook: null,
+    instagram: null,
+    tiktok: null,
     image: '/images/sample/1.png',
-    category: '',
-    favorite: true,
+    category: null,
+    favorite: false,
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
