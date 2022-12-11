@@ -1,30 +1,35 @@
-import { FC, useContext, useState } from 'react'
-import { FriendContext } from 'providers/FriendProvider'
+import { FC, useState } from 'react'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
+import { dbFireStore } from '../../../firebase'
 
 import { useNavigate } from 'react-router-dom'
+import { doc, setDoc } from 'firebase/firestore'
+import { v4 as uuidv4 } from 'uuid'
 
 export const BasicInput: FC = () => {
-  /* @ts-ignore */
-  const { userInfo, setUserInfo } = useContext(FriendContext)
-
   const navigate = useNavigate()
 
+  const uuid = uuidv4()
+  const friendId = `friend?${uuid}`
+
   const onFriendPost = () => {
-    setUserInfo([...userInfo, isPost])
+    const friendRef = doc(dbFireStore, 'post', friendId)
+
+    setDoc(friendRef, isPost)
+
+    alert('友達を追加しました。')
     navigate('/')
   }
 
   const [isPost, setIsPost] = useState({
-    id: 6,
     name: '',
     sex: 0,
     birthday: '',
     address: '',
     work: '',
     relationship: '',
-    phone: 33333333333,
+    phone: '',
     email: '',
     twitter: '',
     facebook: '',
@@ -32,7 +37,7 @@ export const BasicInput: FC = () => {
     tiktok: '',
     image: '/images/sample/1.png',
     category: '',
-    favorite: true,
+    favorite: false,
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

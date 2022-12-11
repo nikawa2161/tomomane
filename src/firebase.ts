@@ -20,6 +20,6 @@ const auth = getAuth(app)
 const provider = new GoogleAuthProvider()
 
 // データベース連携
-const db = getFirestore(app)
+const dbFireStore = getFirestore(app)
 
-export { auth, provider, db }
+export { auth, provider, dbFireStore }
