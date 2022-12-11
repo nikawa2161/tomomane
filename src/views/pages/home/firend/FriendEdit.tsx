@@ -41,6 +41,7 @@ export const FriendEdit = () => {
       alert('ユーザーを取得しました。')
       setIsState(true)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const profileHandler = () => {

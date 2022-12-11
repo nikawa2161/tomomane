@@ -21,6 +21,7 @@ export const FriendProvider: FC<ChildrenType> = ({ children }) => {
       setUserInfo(snapShot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       alert('データの取得')
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -32,6 +33,7 @@ export const FriendProvider: FC<ChildrenType> = ({ children }) => {
       )
     })
     return unSub
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
