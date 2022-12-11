@@ -4,6 +4,8 @@ import { CategoryHome } from './CategoryHome';
 import { FriendHome } from './FriendHome';
 import { LikeHome } from './LikeHome';
 
+import { Outlet } from 'react-router-dom';
+
 export const Home: FC = () => {
 
   const [choice, setChoice] = useState("friend");
@@ -71,6 +73,7 @@ export const Home: FC = () => {
           <LikeHome />
         )}
       </div>
+      <Outlet />
     </>
   )
 }

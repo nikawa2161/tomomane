@@ -1,5 +1,4 @@
-import { FC, useContext, useState } from 'react'
-import { FriendContext } from 'providers/FriendProvider'
+import { FC, useState } from 'react'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
 import { dbFireStore } from '../../../firebase'
@@ -9,39 +8,35 @@ import { doc, setDoc } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
 
 export const BasicInput: FC = () => {
-  /* @ts-ignore */
-  const { userInfo, setUserInfo } = useContext(FriendContext)
-
   const navigate = useNavigate()
 
   const uuid = uuidv4()
-  const friendId = `firend?${uuid}`
+  const friendId = `friend?${uuid}`
 
   const onFriendPost = () => {
     const friendRef = doc(dbFireStore, 'post', friendId)
 
     setDoc(friendRef, isPost)
-    setUserInfo([...userInfo, isPost])
-    alert('友達を追加しました。')
 
+    alert('友達を追加しました。')
     navigate('/')
   }
 
   const [isPost, setIsPost] = useState({
-    name: null,
+    name: '',
     sex: 0,
-    birthday: null,
-    address: null,
-    work: null,
-    relationship: null,
-    phone: null,
-    email: null,
-    twitter: null,
-    facebook: null,
-    instagram: null,
-    tiktok: null,
+    birthday: '',
+    address: '',
+    work: '',
+    relationship: '',
+    phone: '',
+    email: '',
+    twitter: '',
+    facebook: '',
+    instagram: '',
+    tiktok: '',
     image: '/images/sample/1.png',
-    category: null,
+    category: '',
     favorite: false,
   })
 

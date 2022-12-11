@@ -32,7 +32,7 @@ export const Sidebar: FC = () => {
         </div>
         <nav className="mt-10">
           <ul>
-            <SidebarIcon url="/" iconName="ImAddressBook" title="友達一覧" />
+            <SidebarIcon url="top" iconName="ImAddressBook" title="友達一覧" />
             <SidebarIcon url="post" iconName="ImUserPlus" title="友達追加" />
             <SidebarIcon url="like" iconName="IoStar" title="お気に入り" />
             <SidebarIcon

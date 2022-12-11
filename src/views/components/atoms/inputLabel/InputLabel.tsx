@@ -4,8 +4,8 @@ type Input = {
   label: string
   placeholder?: string
   type?: string
-  inputName?:string
-  value?: string
+  inputName?: string
+  value?: string | null | undefined | number
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -27,10 +27,10 @@ export const InputLabel: FC<Input> = ({
           className="font-bold flex-1"
           type={type}
           placeholder={placeholder}
+          // @ts-ignore
           value={value}
           name={inputName}
-          /* @ts-ignore */
-          onChange={e => onChange(e)}
+          onChange={(e) => onChange && onChange(e)}
         />
       </div>
     </>

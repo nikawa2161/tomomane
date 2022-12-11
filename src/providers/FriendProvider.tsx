@@ -21,6 +21,10 @@ export const FriendProvider: FC<ChildrenType> = ({ children }) => {
       setUserInfo(snapShot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       alert('データの取得')
     })
+  }, [])
+
+  useEffect(() => {
+    // リアルタイムでのデータ取得
     const unSub = onSnapshot(postCollectionRef, (querySnapshot) => {
       setUserInfo(
         // @ts-ignore

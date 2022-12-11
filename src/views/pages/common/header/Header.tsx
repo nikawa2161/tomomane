@@ -20,7 +20,7 @@ export const Header: FC = () => {
 
         <div className="px-4 pb-4 pt-2 bg-blue-primary regal-blue md:hidden">
           <ul className="flex justify-between">
-            <HeaderIcon url="/" iconName="ImAddressBook" title="トモダチ" />
+            <HeaderIcon url="top" iconName="ImAddressBook" title="トモダチ" />
             <HeaderIcon url="post" iconName="ImUserPlus" title="友達追加" />
             <HeaderIcon url="like" iconName="IoStar" title="お気に入り" />
             <HeaderIcon url="calendar" iconName="ImCalendar" title="カレンダー" />
