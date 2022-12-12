@@ -5,7 +5,7 @@ import { InputLabel } from 'views/components/atoms/inputLabel/InputLabel'
 import { MemoInput } from 'views/pages/friendPost/MemoInput'
 
 import { useLocation, useNavigate } from 'react-router-dom'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { deleteDoc, doc, getDoc, setDoc } from 'firebase/firestore'
 
 export const FriendEdit = () => {
   const [isState, setIsState] = useState(false)
@@ -28,9 +28,9 @@ export const FriendEdit = () => {
     favorite: false,
   })
 
-  const sampleLocation = useLocation().search
+  const queryLocation = useLocation().search
   // [?id=]の切り取り
-  const friendId = sampleLocation.slice(4)
+  const friendId = queryLocation.slice(4)
   const friendDocumentRef = doc(dbFireStore, 'post', friendId)
 
   useEffect(() => {
@@ -52,10 +52,17 @@ export const FriendEdit = () => {
   }
 
   const navigate = useNavigate()
+
   const onFriendUpdate = () => {
     setDoc(friendDocumentRef, isPost)
 
     alert('友達の変更を受け付けました。')
+    navigate('/')
+  }
+
+  const onFriendDelete = async () => {
+    await deleteDoc(friendDocumentRef)
+    alert('友達の削除')
     navigate('/')
   }
 
@@ -240,6 +247,14 @@ export const FriendEdit = () => {
               </div>
               <div className="mt-10 w-4/5 mx-auto">
                 <PrimaryButton onClick={onFriendUpdate}>変更</PrimaryButton>
+              </div>
+              <div className="mt-12 w-4/5 mx-auto">
+                <PrimaryButton
+                  onClick={onFriendDelete}
+                  className="bg-red-600 text-white"
+                >
+                  削 除
+                </PrimaryButton>
               </div>
             </>
           ) : (
