@@ -6,6 +6,7 @@ import { MemoInput } from 'views/pages/friendPost/MemoInput'
 
 import { useLocation, useNavigate } from 'react-router-dom'
 import { deleteDoc, doc, getDoc, setDoc } from 'firebase/firestore'
+import { BasicForm } from './BasicForm'
 
 export const FriendEdit = () => {
   const [isState, setIsState] = useState(false)
@@ -106,75 +107,13 @@ export const FriendEdit = () => {
                 <div className="px-4 py-2 text-xl bg-slate-400 text-blue-primary font-bold">
                   <p>基本情報</p>
                 </div>
-                <div className="px-4 mt-8">
-                  <InputLabel
-                    label="名前"
-                    placeholder="山田 太郎"
-                    inputName="name"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.name}
-                  />
-                  <InputLabel label="フリガナ" placeholder="ヤマダ タロウ" />
-                  <InputLabel label="ニックネーム" placeholder="ヤマちゃん" />
-                  <InputLabel
-                    label="性別"
-                    type="number"
-                    placeholder="男性"
-                    inputName="sex"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.sex}
-                  />
-                  <InputLabel
-                    label="誕生日"
-                    value={isPost.birthday}
-                    inputName="birthday"
-                    type="month"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                  />
-                  <InputLabel label="出身地" placeholder="沖縄" />
-                  <InputLabel
-                    label="住所"
-                    placeholder="東京都"
-                    inputName="address"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.address}
-                  />
-                  <InputLabel
-                    label="職業"
-                    placeholder="エンジニア"
-                    inputName="work"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.work}
-                  />
-                  <InputLabel
-                    label="関係"
-                    placeholder="同僚"
-                    inputName="relationship"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.relationship}
-                  />
-                  <InputLabel
-                    label="カテゴリー"
-                    placeholder="エンジニア"
-                    inputName="category"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.category}
-                  />
-                </div>
+                <BasicForm
+                  onChange={(e) => {
+                    handleInputChange(e)
+                  }}
+                  // @ts-ignore
+                  value={isPost}
+                />
               </div>
               <div className="mt-10">
                 <div className="px-4 py-2 text-xl bg-slate-400 text-blue-primary font-bold">
