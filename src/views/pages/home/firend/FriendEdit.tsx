@@ -38,7 +38,6 @@ export const FriendEdit = () => {
       // 友達情報の更新
       // @ts-ignore
       setIsPost({ ...documentSnapshot.data() })
-      alert('ユーザーを取得しました。')
       setIsState(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -76,7 +75,6 @@ export const FriendEdit = () => {
     <>
       {isState ? (
         <>
-          <h1> 更新完了 </h1>
           <div className="mt-16">
             <img
               className="h-32 mx-auto"
@@ -262,7 +260,10 @@ export const FriendEdit = () => {
           )}
         </>
       ) : (
-        <h1>更新中</h1>
+        // スピナー
+        <div className="h-screen flex justify-center items-center">
+          <div className="animate-spin h-10 w-10 border-4 border-blue-500 rounded-full border-t-transparent"></div>
+        </div>
       )}
     </>
   )
