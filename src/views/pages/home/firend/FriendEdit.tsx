@@ -111,8 +111,7 @@ export const FriendEdit = () => {
                   onChange={(e) => {
                     handleInputChange(e)
                   }}
-                  // @ts-ignore
-                  value={isPost}
+                  value={{...isPost}}
                 />
               </div>
               <div className="mt-10">
