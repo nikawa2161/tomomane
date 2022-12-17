@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { dbFireStore } from '../../../../firebase'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
-import { InputLabel } from 'views/components/atoms/inputLabel/InputLabel'
 import { MemoInput } from 'views/pages/friendPost/MemoInput'
+import { BasicForm } from './BasicForm'
+import { AccountForm } from './AccountFrom'
 
 import { useLocation, useNavigate } from 'react-router-dom'
 import { deleteDoc, doc, getDoc, setDoc } from 'firebase/firestore'
-import { BasicForm } from './BasicForm'
 
 export const FriendEdit = () => {
   const [isState, setIsState] = useState(false)
@@ -111,75 +111,19 @@ export const FriendEdit = () => {
                   onChange={(e) => {
                     handleInputChange(e)
                   }}
-                  value={{...isPost}}
+                  value={{ ...isPost }}
                 />
               </div>
               <div className="mt-10">
                 <div className="px-4 py-2 text-xl bg-slate-400 text-blue-primary font-bold">
                   <p>連絡先</p>
                 </div>
-                <form className="px-4 mt-8" action="">
-                  <InputLabel
-                    label="電話番号"
-                    placeholder="080-1234-5678"
-                    type="tel"
-                    inputName="phone"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.phone}
-                  />
-                  <InputLabel
-                    label="メアド"
-                    placeholder="yamada@taro.com"
-                    type="email"
-                    inputName="email"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.email}
-                  />
-                  <InputLabel
-                    label="Twitter"
-                    placeholder="@yamataro"
-                    inputName="twitter"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.twitter}
-                  />
-                  <InputLabel
-                    label="FaceBook"
-                    placeholder="@yamataro"
-                    inputName="facebook"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.facebook}
-                  />
-                  <InputLabel
-                    label="Instagram"
-                    placeholder="@yamataro"
-                    inputName="instagram"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.instagram}
-                  />
-                  <InputLabel
-                    label="TikTok"
-                    placeholder="@yamataro"
-                    inputName="tiktok"
-                    onChange={(e) => {
-                      handleInputChange(e)
-                    }}
-                    value={isPost.tiktok}
-                  />
-                  <InputLabel
-                    label="YouTube"
-                    placeholder="トモマネチャンネル"
-                  />
-                </form>
+                <AccountForm
+                  onChange={(e) => {
+                    handleInputChange(e)
+                  }}
+                  value={{ ...isPost }}
+                />
               </div>
               <div className="mt-10 w-4/5 mx-auto">
                 <PrimaryButton onClick={onFriendUpdate}>変更</PrimaryButton>
