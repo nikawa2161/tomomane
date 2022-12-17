@@ -3,25 +3,18 @@ import { InputLabel } from 'views/components/atoms/inputLabel/InputLabel'
 
 type Props = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  name: string
-  sex: number
-  birthday: string
-  address: string
-  work: string
-  relationship: string
-  category: string
+  value: {
+    name: string
+    sex: number
+    birthday: string
+    address: string
+    work: string
+    relationship: string
+    category: string
+  }
 }
 
-export const BasicForm: FC<Props> = ({
-  onChange,
-  name,
-  sex,
-  birthday,
-  address,
-  work,
-  relationship,
-  category,
-}) => {
+export const BasicForm: FC<Props> = ({ onChange, value }) => {
   return (
     <div className="px-4 mt-8">
       <InputLabel
@@ -29,7 +22,7 @@ export const BasicForm: FC<Props> = ({
         placeholder="山田 太郎"
         inputName="name"
         onChange={onChange}
-        value={name}
+        value={value.name}
       />
       <InputLabel label="フリガナ" placeholder="ヤマダ タロウ" />
       <InputLabel label="ニックネーム" placeholder="ヤマちゃん" />
@@ -39,11 +32,11 @@ export const BasicForm: FC<Props> = ({
         placeholder="男性"
         inputName="sex"
         onChange={onChange}
-        value={sex}
+        value={value.sex}
       />
       <InputLabel
         label="誕生日"
-        value={birthday}
+        value={value.birthday}
         inputName="birthday"
         type="month"
         onChange={onChange}
@@ -54,28 +47,28 @@ export const BasicForm: FC<Props> = ({
         placeholder="東京都"
         inputName="address"
         onChange={onChange}
-        value={address}
+        value={value.address}
       />
       <InputLabel
         label="職業"
         placeholder="エンジニア"
         inputName="work"
         onChange={onChange}
-        value={work}
+        value={value.work}
       />
       <InputLabel
         label="関係"
         placeholder="同僚"
         inputName="relationship"
         onChange={onChange}
-        value={relationship}
+        value={value.relationship}
       />
       <InputLabel
         label="カテゴリー"
         placeholder="エンジニア"
         inputName="category"
         onChange={onChange}
-        value={category}
+        value={value.category}
       />
     </div>
   )
