@@ -1,8 +1,10 @@
 import { FC, useContext } from 'react'
 import { ReactIcon } from 'ReactIcon/icon'
 import { FriendContext } from 'providers/FriendProvider'
+import { dbFireStore } from '../../../firebase'
 
 import { NavLink } from 'react-router-dom'
+import { doc, updateDoc } from 'firebase/firestore'
 
 export const FriendHome: FC = () => {
   type FriendType = {
@@ -17,6 +19,14 @@ export const FriendHome: FC = () => {
   }
 
   const { userInfo } = useContext(FriendContext) as FriendContextType
+
+  const handleLike = async (id: string, favorite: boolean) => {
+    const friendDocumentRef = doc(dbFireStore, 'post', id)
+
+    await updateDoc(friendDocumentRef, {
+      favorite: !favorite,
+    })
+  }
 
   return (
     <ul>
@@ -36,15 +46,20 @@ export const FriendHome: FC = () => {
                 <p className="text-lg">{friend.name}</p>
                 <p className="text-base">カテゴリー:{friend.category}</p>
               </div>
-              <ReactIcon
-                name="IoStar"
-                size={25}
-                className={
-                  friend.favorite
-                    ? 'absolute right-0 text-blue-secondary'
-                    : 'absolute right-0 text-slate-300'
-                }
-              />
+              <button
+                type="button"
+                onClick={() => handleLike(friend.id, friend.favorite)}
+              >
+                <ReactIcon
+                  name="IoStar"
+                  size={25}
+                  className={
+                    friend.favorite
+                      ? 'absolute right-0 text-blue-secondary'
+                      : 'absolute right-0 text-slate-300'
+                  }
+                />
+              </button>
             </NavLink>
           </li>
         )
