@@ -34,7 +34,7 @@ export const LikesHome: FC = () => {
     { value: 'nameOrder', label: '名前順', func: () => nameSort() },
     {
       value: 'inverseNameOrder',
-      label: '逆名前順',
+      label: '名前降順',
       func: () => inverseNameSort(),
     },
   ]
@@ -71,8 +71,7 @@ export const LikesHome: FC = () => {
       <div className="p-5">
         <h2 className="text-2xl">お気に入り</h2>
         <div className="relative mt-5 pb-1 flex justify-between border-b solid border-current text-sm">
-          <p>○件</p>
-          {/* フィルター */}
+          <p>{`${friends.length}件`}</p>
 
           <div className="">
             <ReactIcon
@@ -114,7 +113,6 @@ export const LikesHome: FC = () => {
             </ul>
           </div>
 
-          {/* フィルター */}
         </div>
         <div className="mt-5">
           <LikeFriend friends={friends} />
