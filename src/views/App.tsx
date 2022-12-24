@@ -1,15 +1,12 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { Header } from './pages/common/header/Header'
-import {Footer} from './pages/common/Footer'
-import { AuthHome } from './pages/authentication/AuthHome'
+import { Footer } from './pages/common/Footer'
 import { Router } from '../router/Router'
-import { auth } from '../firebase'
-
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { AuthHome } from './pages/authentication/AuthHome'
+import { UserAuthContext } from 'providers/UserAuthProvider'
 
 export const App: FC = () => {
-  // ログイン状態の確認
-  const [user] = useAuthState(auth)
+  const { isAuth } = useContext(UserAuthContext)
 
   return (
     <>
@@ -17,7 +14,7 @@ export const App: FC = () => {
         <div className="min-h-screen">
           <Header />
           <div className="pt-32 min-h-screen">
-            {user ? <Router /> : <AuthHome />}
+            {isAuth ? <Router /> : <AuthHome />}
           </div>
         </div>
         <Footer />

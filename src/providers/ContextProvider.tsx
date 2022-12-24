@@ -1,14 +1,16 @@
-import { FC } from "react"
-import { FriendProvider } from "./FriendProvider"
-
+import { FC } from 'react'
+import { FriendProvider } from './FriendProvider'
+import { UserAuthProvider } from './UserAuthProvider'
 
 type Props = {
   children: React.ReactNode
 }
-export const Providers: FC<Props> = (props) => {
+export const Providers: FC<Props> = ({ children }) => {
   return (
     <>
-      <FriendProvider>{props.children}</FriendProvider>
+      <UserAuthProvider>
+        <FriendProvider>{children}</FriendProvider>
+      </UserAuthProvider>
     </>
   )
 }
