@@ -1,22 +1,29 @@
-import { FC } from 'react'
-import { auth, provider } from '../../../firebase'
+import { FC, useContext } from 'react'
+import { auth, provider } from '../../../firebaseConfig'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
+import { UserAuthContext } from 'providers/UserAuthProvider'
 
-import { signInWithPopup } from 'firebase/auth'
 import { ReactIcon } from 'ReactIcon/icon'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useNavigate } from 'react-router-dom'
+import { signInWithPopup } from 'firebase/auth'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+
+type CustomLocation = {
+  state: { from: { pathname: string } }
+}
 
 export const AuthHome: FC = () => {
+  const navigate = useNavigate()
+  const location: CustomLocation = useLocation() as CustomLocation
+  const fromPathName: string = location.state.from.pathname
+
   const sinInWithGoogle = () => {
     // firebaseでログイン
     signInWithPopup(auth, provider)
   }
 
-  const navigate = useNavigate()
-  const [user] = useAuthState(auth)
-  if(user) {
-    navigate('/top')
+  const { isAuth } = useContext(UserAuthContext)
+  if (isAuth) {
+    navigate(fromPathName)
   }
 
   return (
@@ -33,9 +40,11 @@ export const AuthHome: FC = () => {
             <PrimaryButton>ログイン</PrimaryButton>
           </div>
           <div className="mt-5 w-4/5 mx-auto">
-            <PrimaryButton className="bg-white text-sky-400 border border-solid border-sky-400">
-              新規登録
-            </PrimaryButton>
+            <NavLink to="signIn">
+              <PrimaryButton className="bg-white text-sky-400 border border-solid border-sky-400">
+                新規登録
+              </PrimaryButton>
+            </NavLink>
           </div>
           <div className="mt-10 w-4/5 mx-auto">
             <PrimaryButton

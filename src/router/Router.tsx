@@ -20,8 +20,8 @@ export const Router: FC = () => {
   return (
     <>
       <Routes>
-        <Route path={`/`} element={<AuthHome />} />
-        <Route path={`signIn`} element={<SignIn />} />
+        <Route index element={<AuthHome />} />
+        <Route path="signIn" element={<SignIn />} />
 
         <Route
           path="top"

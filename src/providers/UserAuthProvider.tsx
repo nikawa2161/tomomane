@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 
 type Context = {
   isAuth: boolean
+  signOut: () => void
 }
 type ChildrenType = {
   children: ReactNode
@@ -23,8 +24,12 @@ export const UserAuthProvider: FC<ChildrenType> = ({ children }) => {
     }
   }, [user])
 
+  const signOut = () => {
+    auth.signOut()
+  }
+
   return (
-    <UserAuthContext.Provider value={{ isAuth }}>
+    <UserAuthContext.Provider value={{ isAuth, signOut }}>
       {children}
     </UserAuthContext.Provider>
   )

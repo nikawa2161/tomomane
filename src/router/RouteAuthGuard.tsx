@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react'
 import { UserAuthContext } from 'providers/UserAuthProvider'
 
-import { Navigate } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 
 type Props = {
   component: React.ReactNode
@@ -11,8 +11,10 @@ type Props = {
 export const RouteAuthGuard: FC<Props> = ({ component, redirect }) => {
   const { isAuth } = useContext(UserAuthContext)
 
+  const nowLocation = useLocation()
+
   if (!isAuth) {
-    return <Navigate to={redirect} replace={false} />
+    return <Navigate to={redirect} state={{ from: nowLocation }} />
   }
 
   return <>{component}</>
