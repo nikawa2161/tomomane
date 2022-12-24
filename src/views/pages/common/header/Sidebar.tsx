@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { auth } from '../../../../firebase'
+import { auth } from '../../../../firebaseConfig'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 
 import { slide as Menu } from 'react-burger-menu'
