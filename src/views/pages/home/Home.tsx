@@ -1,14 +1,13 @@
 import { FC, useState } from 'react'
-import { ReactIcon } from 'ReactIcon/icon';
-import { CategoryHome } from './CategoryHome';
-import { FriendHome } from './FriendHome';
-import { LikeHome } from './LikeHome';
+import { ReactIcon } from 'ReactIcon/icon'
+import { CategoryHome } from './CategoryHome'
+import { FriendHome } from './FriendHome'
+import { LikeHome } from './LikeHome'
 
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom'
 
 export const Home: FC = () => {
-
-  const [choice, setChoice] = useState("friend");
+  const [choice, setChoice] = useState('friend')
 
   const friendHandler = () => {
     setChoice('friend')

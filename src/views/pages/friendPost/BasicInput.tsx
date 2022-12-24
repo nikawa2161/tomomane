@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { InputLabel } from '../../components/atoms/inputLabel/InputLabel'
-import { dbFireStore } from '../../../firebase'
+import { dbFireStore } from '../../../firebaseConfig'
 
 import { useNavigate } from 'react-router-dom'
 import { doc, setDoc } from 'firebase/firestore'

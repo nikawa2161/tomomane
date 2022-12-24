@@ -1,14 +1,14 @@
-import { FC } from 'react'
-import { auth } from '../../../../firebase'
+import { FC, useContext } from 'react'
+import { auth } from '../../../../firebaseConfig'
+import { SidebarIcon } from './SidebarIcon'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
+import { UserAuthContext } from 'providers/UserAuthProvider'
 
 import { slide as Menu } from 'react-burger-menu'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { SidebarIcon } from './SidebarIcon'
 import { ReactIcon } from 'ReactIcon/icon'
 
 export const Sidebar: FC = () => {
-  const [user] = useAuthState(auth)
+  const { isAuth, signOut } = useContext(UserAuthContext)
 
   return (
     <Menu>
@@ -47,10 +47,8 @@ export const Sidebar: FC = () => {
             />
           </ul>
           <div className="mt-10 w-4/5 mx-auto">
-            {user ? (
-              <PrimaryButton onClick={() => auth.signOut()}>
-                ログアウト
-              </PrimaryButton>
+            {isAuth ? (
+              <PrimaryButton onClick={signOut}>ログアウト</PrimaryButton>
             ) : (
               <PrimaryButton>ログイン</PrimaryButton>
             )}

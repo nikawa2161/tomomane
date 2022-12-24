@@ -1,6 +1,6 @@
 import { createContext, FC, ReactNode, useEffect, useState } from 'react'
 import { FriendContextType, IFriend } from 'types/postFriend'
-import { dbFireStore } from '../firebase'
+import { dbFireStore } from '../firebaseConfig'
 
 import { collection, getDocs, onSnapshot } from 'firebase/firestore'
 

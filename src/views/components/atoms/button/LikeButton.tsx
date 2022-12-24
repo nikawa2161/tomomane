@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { ReactIcon } from 'ReactIcon/icon'
-import { dbFireStore } from '../../../../firebase'
+import { dbFireStore } from '../../../../firebaseConfig'
 
 import { doc, updateDoc } from 'firebase/firestore'
 
@@ -10,7 +10,6 @@ type MyComponentsProps = {
 }
 
 export const LikeButton: FC<MyComponentsProps> = ({ id, favorite }) => {
-
   const handleLike = async (id: string, favorite: boolean) => {
     const friendDocumentRef = doc(dbFireStore, 'post', id)
 
@@ -18,7 +17,6 @@ export const LikeButton: FC<MyComponentsProps> = ({ id, favorite }) => {
       favorite: !favorite,
     })
   }
-  
   return (
     <>
       <button type="button" onClick={() => handleLike(id, favorite)}>

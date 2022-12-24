@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { dbFireStore } from '../../../../firebase'
+import { dbFireStore } from '../../../../firebaseConfig'
 import { PrimaryButton } from 'views/components/atoms/button/PrimaryButton'
 import { MemoInput } from 'views/pages/friendPost/MemoInput'
 import { BasicForm } from './BasicForm'
