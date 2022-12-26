@@ -26,6 +26,7 @@ export const UserAuthProvider: FC<ChildrenType> = ({ children }) => {
 
   const signOut = () => {
     auth.signOut()
+    setIsAuth(false)
   }
 
   return (
