@@ -20,7 +20,7 @@ export const LikeHome: FC = () => {
 
   return (
     <>
-      <ul>
+      <ul className="mt-5">
         {userInfo.map(
           (friend: FriendType) =>
             friend.favorite === true && (

@@ -28,7 +28,7 @@ export const Router: FC = () => {
           element={<RouteAuthGuard component={<Home />} redirect="/" />}
         >
           <Route
-            path="friend"
+            index
             element={<RouteAuthGuard component={<FriendHome />} redirect="/" />}
           />
           <Route
