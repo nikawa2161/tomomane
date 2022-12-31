@@ -14,8 +14,11 @@ type CustomLocation = {
 export const AuthHome: FC = () => {
   const navigate = useNavigate()
   const location: CustomLocation = useLocation() as CustomLocation
-  const fromPathName: string = location.state
+  let fromPathName: string = location.state
 
+  if (fromPathName == null) {
+    fromPathName = '/top'
+  }
   const sinInWithGoogle = () => {
     // firebaseでログイン
     signInWithPopup(auth, provider)
