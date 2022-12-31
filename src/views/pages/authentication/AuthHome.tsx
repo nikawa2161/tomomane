@@ -8,13 +8,13 @@ import { signInWithPopup } from 'firebase/auth'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 type CustomLocation = {
-  state: { from: { pathname: string } }
+  state: string
 }
 
 export const AuthHome: FC = () => {
   const navigate = useNavigate()
   const location: CustomLocation = useLocation() as CustomLocation
-  const fromPathName: string = location.state.from.pathname
+  const fromPathName: string = location.state
 
   const sinInWithGoogle = () => {
     // firebaseでログイン
