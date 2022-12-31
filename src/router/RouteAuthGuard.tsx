@@ -14,7 +14,7 @@ export const RouteAuthGuard: FC<Props> = ({ component, redirect }) => {
   const nowLocation = useLocation()
 
   if (!isAuth) {
-    return <Navigate to={redirect} state={{ from: nowLocation }} />
+    return <Navigate to={redirect} state={ nowLocation.pathname } />
   }
 
   return <>{component}</>

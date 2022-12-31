@@ -1,24 +1,30 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { ReactIcon } from 'ReactIcon/icon'
-import { CategoryHome } from './CategoryHome'
-import { FriendHome } from './FriendHome'
-import { LikeHome } from './LikeHome'
 
 import { Outlet } from 'react-router-dom'
 
+import { NavLink } from 'react-router-dom'
+
+type Friend = {
+  path: string
+  navName: string
+}
+
 export const Home: FC = () => {
-  const [choice, setChoice] = useState('friend')
-
-  const friendHandler = () => {
-    setChoice('friend')
-  }
-  const categoryHandler = () => {
-    setChoice('category')
-  }
-  const likeHandler = () => {
-    setChoice('like')
-  }
-
+  const navMenus = [
+    {
+      path: '',
+      navName: '友達',
+    },
+    {
+      path: 'category',
+      navName: 'カテゴリー',
+    },
+    {
+      path: 'like',
+      navName: 'お気に入り',
+    },
+  ]
   return (
     <>
       <div className="flex justify-between py-5 px-5 items-center border-solid border-b border-current text-blue-primary">
@@ -36,43 +42,26 @@ export const Home: FC = () => {
           <input className="flex-1 ml-3 bg-transparent" type="text" />
         </div>
       </div>
-      <div className="py-2 px-5 flex justify-between text-blue-primary">
-        <button
-          onClick={friendHandler}
-          className={`py-1 border-solid  border-current ${
-            choice === 'friend' ? 'border-b' : ''
-          }`}
-        >
-          友達一覧
-        </button>
-        <button
-          onClick={categoryHandler}
-          className={`py-1 border-solid  border-current ${
-            choice === 'category' ? 'border-b' : ''
-          }`}
-        >
-          カテゴリー
-        </button>
-        <button
-          onClick={likeHandler}
-          className={`py-1 border-solid  border-current ${
-            choice === 'like' ? 'border-b' : ''
-          }`}
-        >
-          お気に入り
-        </button>
+      <div className="py-2 px-5">
+        <div className="flex justify-between text-blue-primary">
+          {navMenus.map((nav: Friend) => (
+            <NavLink
+              key={nav.path}
+              to={nav.path}
+              className={({ isActive }) =>
+                isActive
+                  ? 'py-1 border-solid  border-current border-b'
+                  : 'py-1 border-solid  border-current'
+              }
+            >
+              {nav.navName}
+            </NavLink>
+          ))}
+        </div>
+        <div className="mt-5">
+          <Outlet />
+        </div>
       </div>
-
-      <div className="mt-5 px-5">
-        {choice === 'friend' ? (
-          <FriendHome />
-        ) : choice === 'category' ? (
-          <CategoryHome />
-        ) : (
-          <LikeHome />
-        )}
-      </div>
-      <Outlet />
     </>
   )
 }

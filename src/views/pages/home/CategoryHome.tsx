@@ -9,7 +9,7 @@ export const CategoryHome: FC = () => {
   }
   return (
     <>
-      <div className="flex flex-wrap justify-between ">
+      <div className="mt-5 flex flex-wrap justify-between ">
         {/* カード */}
         {categoryData.map((category: CategoryData) => {
           return (
