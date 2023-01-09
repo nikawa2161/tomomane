@@ -17,9 +17,7 @@ export const BasicInput: FC = () => {
     const friendRef = doc(dbFireStore, 'post', friendId)
 
     setDoc(friendRef, isPost)
-
-    alert('友達を追加しました。')
-    navigate('/')
+    navigate('/top')
   }
 
   const [isPost, setIsPost] = useState({

@@ -56,14 +56,12 @@ export const FriendEdit = () => {
   const onFriendUpdate = () => {
     setDoc(friendDocumentRef, isPost)
 
-    alert('友達の変更を受け付けました。')
-    navigate('/')
+    navigate('/top')
   }
 
   const onFriendDelete = async () => {
     await deleteDoc(friendDocumentRef)
-    alert('友達の削除')
-    navigate('/')
+    navigate('/top')
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
